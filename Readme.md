@@ -20,4 +20,4 @@ I also took advantage from the fact that each job doesn't have more than one dep
 
 ## Sources
 
-* [[1]](http://en.wikipedia.org/wiki/Topological_sorting)
+* [[1] Topological Sorting](http://en.wikipedia.org/wiki/Topological_sorting)
