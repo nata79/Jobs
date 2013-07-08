@@ -43,7 +43,17 @@ module Job
         (result.index('f') < result.index('c')).should be_true
         (result.index('a') < result.index('d')).should be_true
         (result.index('b') < result.index('e')).should be_true        
-      end   
+      end
+
+      it 'raises an error if a job depends on himself' do
+        jobs_string = 'a => \nb => \nc => c\n'
+        expect{ Order.new.execute jobs_string }.to raise_error
+      end
+
+      it 'raises an error if a there is circular dependencies' do
+        jobs_string = 'a => \nb => c\nc => f\nd => a\ne => \nf => b'
+        expect{ Order.new.execute jobs_string }.to raise_error
+      end
     end
   end
 
