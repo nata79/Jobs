@@ -14,7 +14,7 @@ The tests were writen using RSpec.
 
 The problem fits in the "Topological Sorting" category. I used a variation of the algorithm proposed by Kahn[1].
 
-The original algorithm receives a graph where the jobs are represented by vertices, and there is an edge from x to y if job x must be completed __before__ job y can be started. To better fit the provided input and gain performance I built a graph where there is an edge from x to y if job x must be completed __after__ job y.
+The original algorithm receives a graph where the jobs are represented by vertices, and there is an edge from x to y if job x must execute __before__ job y. To better fit the provided input and gain performance I built a graph where there is an edge from x to y if job x must be executed __after__ job y.
 
 I also took advantage from the fact that each job doesn't have more than one dependency.
 
