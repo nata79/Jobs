@@ -2,8 +2,7 @@ module Job
   class Order
     def execute jobs_string
       job_hash = job_string_to_hash jobs_string
-      orderd_jobs = apply_order_algorithm job_hash
-      orderd_jobs.join ','
+      apply_order_algorithm job_hash
     end
   private
     def job_string_to_hash jobs_string
