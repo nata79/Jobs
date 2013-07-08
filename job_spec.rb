@@ -26,6 +26,13 @@ module Job
         result.split(',').length.should be 3
         %w(a b c).each{ |j| result.include?(j).should be_true }        
       end
+
+      it 'returns a string ordered with simple dependencies' do
+        jobs_string = 'a => \nb => c\nc => \n'
+        result = Order.new.execute jobs_string
+        result = result.split(',')
+        (result.index('c') < result.index('b')).should be_true
+      end      
     end
   end
 
