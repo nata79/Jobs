@@ -1,5 +1,5 @@
 module Job
-  class Order
+  class Sorter
     def execute jobs_string
       job_hash = job_string_to_hash jobs_string
       apply_order_algorithm job_hash
