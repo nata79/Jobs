@@ -1,6 +1,5 @@
 require './job.rb'
 require 'rspec'
-require 'pry'
 
 module Job
   
