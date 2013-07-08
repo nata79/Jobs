@@ -1,5 +1,6 @@
 require './job.rb'
 require 'rspec'
+require 'pry'
 
 module Job
   
@@ -32,7 +33,17 @@ module Job
         result = Order.new.execute jobs_string
         result = result.split(',')
         (result.index('c') < result.index('b')).should be_true
-      end      
+      end   
+
+      it 'returns an ordered string with complex dependencies' do
+        jobs_string = 'a => \nb => c\nc => f\nd => a\ne => b\nf =>'
+        result = Order.new.execute jobs_string
+        result = result.split(',')
+        (result.index('c') < result.index('b')).should be_true
+        (result.index('f') < result.index('c')).should be_true
+        (result.index('a') < result.index('d')).should be_true
+        (result.index('b') < result.index('e')).should be_true        
+      end   
     end
   end
 
